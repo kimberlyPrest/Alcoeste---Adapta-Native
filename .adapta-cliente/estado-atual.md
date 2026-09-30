@@ -3,11 +3,11 @@
 - task_id: T1.1
 - champion: Marie Egashira
 - spec: 04_fase-atual/specs/SPEC-1-001.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: implementando
+- autorizacao_implementacao: confirmada em 2026-09-30T10:41:22-03:00 — “Autorizar implementação da T1.1”
 - teste_humano: pendente
-- verificacao_automatica: pendente — baseline de T1.1 não executado; o script `test` em `package.json` é placeholder sem suíte real.
+- verificacao_automatica: pendente
 - aprendizado: pendente
-- ultima_acao: Em 2026-09-30, analisados SPEC-1-001 e o app Skip 57219. Luís esclareceu que T1.1 pode usar fixture sintética e não depende de dados OT/G2. App atual contém somente login e coleção `users`. Nenhum arquivo do app foi alterado. A tabela da fase atribui T1.1 a Produto/Dados, sem executor individual nomeado.
-- proxima_acao: aguardar autorização para implementar
-- atualizado_em: 2026-09-30T10:38:15-03:00
+- ultima_acao: Autorização explícita recebida após análise; SPEC-1-001 e estado revalidados. Working tree do Skip já continha `.skip.config.json` pendente, preservado. Nenhuma alteração de produto desta task ainda aplicada.
+- proxima_acao: implementar o esquema versionado, fixture sintética e validação/relatório RED exclusivamente para T1.1 no Skip
+- atualizado_em: 2026-09-30T10:41:22-03:00
