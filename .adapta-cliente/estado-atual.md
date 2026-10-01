@@ -3,14 +3,11 @@
 - task_id: T1.1
 - champion: Marie Egashira
 - spec: 04_fase-atual/specs/SPEC-1-001.md
-- etapa: bloqueada
-- autorizacao_implementacao: confirmada em 2026-09-30T10:41:22-03:00 — “Autorizar implementação da T1.1”
+- etapa: implementando
+- autorizacao_implementacao: confirmada em 2026-10-01T12:29:00-03:00 — “Registrar decisões e montar esquema T1.1”; Código como chave do ativo, 1.100 linhas sem status como componentes, APAGAR ignorada
 - teste_humano: pendente
 - verificacao_automatica: pendente
 - aprendizado: pendente
-- duvidas:
-  - DÚVIDA (Kim/TI-OT): integração contínua ao TOTVS PIMS MI como fonte única — caminho de leitura, frequência e autorização pendentes.
-  - DÚVIDA (Luís, 01/10): decisões de mapeamento da planilha recebida — chave única do ativo, tratamento das 1.100 linhas sem status e semântica da coluna APAGAR.
-- ultima_acao: Planilha de ativos recebida e analisada (1.926 registros na Base Montagem, 127 na TAG Localização). Achados registrados no changelog: TAG de localização não é chave única, 1.100 sem status, 4 sem criticidade, coluna APAGAR ambígua, sem coluna de sensores. Decisões de mapeamento pedidas a Luís.
-- proxima_acao: com as decisões de Luís, implementar esquema versionado, fixture sintética com casos RED e validação da importação da planilha no Skip
-- atualizado_em: 2026-10-01T12:20:00-03:00
+- ultima_acao: Luís confirmou as decisões de mapeamento e autorizou a construção do esquema da T1.1 a partir do Excel. Escopo de execução limitado à prévia/validação sem gravar o workbook real no cadastro operacional; integração contínua ao PIMS MI permanece DÚVIDA separada com Kim/TI-OT.
+- proxima_acao: implementar esquema versionado, fixture sintética, validação/relatório RED e prévia segura de Excel no Skip, sem sincronização PIMS ou persistência dos registros reais
+- atualizado_em: 2026-10-01T12:43:13-03:00
