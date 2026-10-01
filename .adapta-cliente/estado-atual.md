@@ -8,6 +8,9 @@
 - teste_humano: pendente
 - verificacao_automatica: pendente
 - aprendizado: pendente
-- ultima_acao: Em 2026-10-01, Luís solicitou fonte única de dados no TOTVS PIMS MI e atualização por consulta ao abrir a plataforma. Requisito registrado como DÚVIDA por ampliar a T1.1 e depender de caminho, frequência e autorização de leitura ainda não confirmados. Nenhuma alteração de produto do Skip foi feita nesta etapa.
-- proxima_acao: aguardar decisão da consultora Kim sobre manter T1.1 no recorte SPEC-1-001 ou encaminhar integração ao fluxo T2.1/T2.2 com responsável TI/OT/PIMS e interface de leitura autorizada
-- atualizado_em: 2026-10-01T12:06:22-03:00
+- duvidas:
+  - DÚVIDA (Kim/TI-OT): integração contínua ao TOTVS PIMS MI como fonte única — caminho de leitura, frequência e autorização pendentes.
+  - DÚVIDA (Luís, 01/10): decisões de mapeamento da planilha recebida — chave única do ativo, tratamento das 1.100 linhas sem status e semântica da coluna APAGAR.
+- ultima_acao: Planilha de ativos recebida e analisada (1.926 registros na Base Montagem, 127 na TAG Localização). Achados registrados no changelog: TAG de localização não é chave única, 1.100 sem status, 4 sem criticidade, coluna APAGAR ambígua, sem coluna de sensores. Decisões de mapeamento pedidas a Luís.
+- proxima_acao: com as decisões de Luís, implementar esquema versionado, fixture sintética com casos RED e validação da importação da planilha no Skip
+- atualizado_em: 2026-10-01T12:20:00-03:00
