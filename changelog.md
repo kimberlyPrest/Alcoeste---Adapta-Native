@@ -14,4 +14,4 @@
 - Estado da task atualizado: aguardando teste humano.
 
 ## 2026-10-02
-- Luís reportou falha no teste humano da T1.1 (“Encontrei uma falha no teste”), sem indicar ainda tela, passo ou resultado observado. Task retornou a `em_correcao`; início da reprodução diagnóstica, sem mudança no app até confirmar a causa.
+- Luís reportou falha no teste humano da T1.1. Debug: o preview aberto via navegador apresenta somente a tela de login; tentativa de rota `/painel?tab=equipamentos` redireciona para `/`. Não foi usada credencial nem contornada autenticação. Não há request/log da prévia na instância; sintoma específico do cliente permanece desconhecido. Nenhuma mudança de produto foi feita. Estado `bloqueada` até Luís enviar o passo, resultado esperado/observado e mensagem ou relatório de erro que permita reproduzir.
