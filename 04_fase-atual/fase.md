@@ -28,8 +28,8 @@ Um **Painel de Prontidão e Condição Inicial da Moenda** com o catálogo homol
 Modelo preditivo em produção, diagnóstico automático, recomendação operacional ou escrita no PIMS.
 
 ## Checklist
-- [ ] Responsáveis e RACI do piloto definidos.
-- [ ] Catálogo e criticidade homologados.
+- [x] Responsáveis e RACI do piloto definidos. *(parcial — responsáveis nomeados; RACI formal no T6.1)*
+- [ ] Catálogo e criticidade homologados. *(T1.2 concluída; homologação e congelamento na T1.3)*
 - [ ] Tags e sensores obrigatórios mapeados.
 - [ ] Acesso a amostra real demonstrado.
 - [ ] Fonte de falhas/paradas/OS homologada.
@@ -59,7 +59,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 ### Leva A
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| T1.1 | Preparar e validar o esquema de importação do universo inicial de ativos | Produto/Dados | SPEC-1-001 | Fixture com ativo completo, sem sensor, tag duplicada e exclusão é importada sem perda de origem; pendências ficam bloqueadas | TDD RED — validação do catálogo | fixture, relatório RED e esquema versionado | Fontes candidatas disponibilizadas | ☐ |
+| T1.1 | Preparar e validar o esquema de importação do universo inicial de ativos | Produto/Dados | SPEC-1-001 | Fixture com ativo completo, sem sensor, tag duplicada e exclusão é importada sem perda de origem; pendências ficam bloqueadas | TDD RED — validação do catálogo | fixture, relatório RED e esquema versionado | Fontes candidatas disponibilizadas | ✅ 14/10 |
 | T2.1 | Inventariar fontes OT e desenhar protocolo seguro da prova de acesso | TI/OT | SPEC-1-002 | Inventário cobre SCADA, historiador, IONICS, Solinftec e exportações; protocolo proíbe teste de escrita em produção | Pré-condição + TDD RED | inventário, diagrama preliminar e protocolo autorizado | Responsável TI/OT designado | ☐ |
 | T3.1 | Definir dicionário operacional e memória de cálculo de K1, K2 e K3 | PCM | SPEC-1-003 | CA-1-007 passa com termos, fórmulas, fontes, janelas, exclusões e donos | TDD GREEN — contrato dos KPIs | contrato de medição versionado | Briefing aprovado e responsáveis nomeados | ☐ |
 | T4.1 | Implementar fixture e perfilador reproduzível de qualidade de séries | Engenharia de Dados | SPEC-1-004 | Fixture detecta gap, duplicidade, atraso, unidade alterada, vazio e timestamp inválido | TDD RED — caminhos de erro | fixture, configuração e relatório RED | Esquema da amostra definido | ☐ |
@@ -69,7 +69,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 ### Leva B
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| T1.2 | Consolidar ativos, componentes, tags, sensores e criticidade com lacunas explícitas | PCM/Manutenção | SPEC-1-001 | CA-1-001 e CA-1-002 passam para 100% dos candidatos | TDD GREEN — catálogo e estados de cobertura | export completo e relatório de lacunas | T1.1 aceita e responsáveis nomeados | ☐ |
+| T1.2 | Consolidar ativos, componentes, tags, sensores e criticidade com lacunas explícitas | PCM/Manutenção | SPEC-1-001 | CA-1-001 e CA-1-002 passam para 100% dos candidatos | TDD GREEN — catálogo e estados de cobertura | export completo e relatório de lacunas | T1.1 aceita e responsáveis nomeados | ✅ 14/10 |
 | T2.2 | Executar prova de leitura somente leitura com dados reais da moenda | Automação/TI-OT | SPEC-1-002 | CA-1-004, CA-1-005 e CA-1-021 passam, incluindo segmentação e ciclo de vida da credencial | TDD GREEN — amostra real e arquitetura OT | amostra sanitizada, logs, diagrama e parecer TI/OT | T2.1 aceita; janela e autorização OT aprovadas | ☐ |
 | T6.2 | Aprovar protocolo de incidente e integridade das aprovações | Responsável TI/OT | SPEC-1-006 | CA-1-023 e CA-1-024 passam em cenários de credencial, acesso, exportação e aprovação sem identidade/hash | TDD RED/REGRESSÃO — incidente e autoria | runbook, simulação de mesa, registros assinados/hash | T2.1 e T6.1 aceitas | ☐ |
 
