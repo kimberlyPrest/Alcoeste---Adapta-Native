@@ -29,8 +29,8 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 
 ## Checklist
 - [x] Responsáveis e RACI do piloto definidos. *(parcial — responsáveis nomeados; RACI formal no T6.1)*
-- [ ] Catálogo e criticidade homologados. *(T1.2 concluída; homologação e congelamento na T1.3)*
-- [ ] Tags e sensores obrigatórios mapeados.
+- [x] Catálogo e criticidade homologados. *(T1.3 concluída 19/10 — catálogo v1.2.0 congelado, termo 06_notas/termo-homologacao-t1.3.md)*
+- [x] Tags e sensores obrigatórios mapeados. *(cobertura congelada: 9 covered / 12 lacunas A explícitas / 19 not-required / 47 not-applicable)*
 - [ ] Acesso a amostra real demonstrado.
 - [ ] Fonte de falhas/paradas/OS homologada.
 - [ ] K1–K3 definidos operacionalmente.
@@ -39,7 +39,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - [ ] Lista de bloqueadores e contornos aprovada.
 
 ## Critérios de aceite
-- **CA-F1-01:** 100% dos ativos elegíveis do piloto possuem identificador, classe, criticidade, responsável e vínculo conhecido ou lacuna explícita com as fontes.
+- **CA-F1-01:** 100% dos ativos elegíveis do piloto possuem identificador, classe, criticidade, responsável e vínculo conhecido ou lacuna explícita com as fontes. *(satisfeito pelo catálogo congelado — 226/226, 12 lacunas explícitas)*
 - **CA-F1-02:** ao menos uma amostra real de cada fonte aprovada é ingerida e exibida com ativo, variável, unidade, timestamp e origem.
 - **CA-F1-03:** o painel diferencia claramente ativo coberto, parcialmente coberto, sem dados e dado atrasado.
 - **CA-F1-04:** K1–K3 possuem fórmula, denominador, janela, fonte e responsável aprovados ou estão marcados como bloqueados, sem estimativa inventada.
@@ -76,7 +76,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 ### Leva C
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| T1.3 | Homologar e congelar a versão do catálogo e suas exclusões | Gestão Industrial | SPEC-1-001 | CA-1-003 passa e alteração posterior preserva versão anterior | TDD REGRESSÃO — versionamento e exclusões | termo de homologação, versão/hash e diff | T1.2 aceita | ☐ |
+| T1.3 | Homologar e congelar a versão do catálogo e suas exclusões | Gestão Industrial | SPEC-1-001 | CA-1-003 passa e alteração posterior preserva versão anterior | TDD REGRESSÃO — versionamento e exclusões | termo de homologação, versão/hash e diff | T1.2 aceita | ✅ 19/10 |
 | T2.3 | Classificar viabilidade e frequência por classe e emitir parecer técnico G2/G9 | PCM | SPEC-1-002 | CA-1-006 passa; cada classe fica útil ou bloqueada com justificativa; ausência total gera parecer G2-A | Cenário limite/falha + regressão segura | matriz classe×fonte×frequência e parecer técnico | T2.2 concluída ou impossibilidade documentada | ☐ |
 | T4.2 | Perfilar amostra real e dimensionar armazenamento da Fase 2 | Engenharia de Dados | SPEC-1-004 | CA-1-010 e CA-1-011 passam com métricas e estimativas reproduzíveis | TDD GREEN — perfil e dimensionamento | relatório versionado e memória de custo/retenção | T2.2 aceita e T4.1 aceita | ☐ |
 
