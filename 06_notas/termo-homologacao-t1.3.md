@@ -4,6 +4,8 @@
 **Data:** 2026-10-19
 **Homologador:** Luís Arakaki (Diretor-Presidente, Alcoeste Bioenergia)
 **Autorização:** "Posso estar implementando agora, e caso a Kim divergir reverter as alterações?" (19/10, 09:28)
+**Teste humano:** APROVADO — "Realizei o teste humano, 226/226 aceitos, 0 bloqueados" (19/10, 09:56)
+**Validação do rascunho Família→Classe:** APROVADA pelo homologador na mesma mensagem — as 23 famílias da moenda deixam de ser rascunho e passam a vocabulário homologado do catálogo.
 **Precedente de reversibilidade:** emendas v1.1.0/v1.2.0 aplicadas sob autorização do cliente com homologação da consultora pendente; se Kim divergir, reverte-se para a versão anterior documentada abaixo, sem perda de histórico.
 
 ## Versão congelada
@@ -19,7 +21,7 @@
 ## Conteúdo do catálogo congelado
 
 - **226 registros: 83 ativos + 143 componentes**, 8 localizações, zero bloqueios.
-- **Classe derivada da Família** (tabela-rascunho de 23 famílias da moenda, com proveniência; validação do PCM registrada como pendência de homologação da Kim).
+- **Classe derivada da Família** — tabela Família→Classe das 23 famílias da moenda, HOMOLOGADA pelo Diretor-Presidente em 19/10 (promovida de rascunho).
 - **Cobertura (política criticidade-rotativo):** 9 covered (pontos IoTebe) · 12 uncovered — lacunas explícitas de criticidade A (TM01-05, PR01-03, HI01-02, ET09, PI02) · 19 not-required (B/C rotativos) · 47 not-applicable (estáticos).
 - **Re-modelagem aprovada pelo PCM (19/10):** MEL0097, BBA0053, MEL0096, BBA0054 (motores/bombas de lubrificação, criticidade C) reclassificados como componentes dos ativos LB05/LB06 — "Sistemas de lubrificação" (família LB, estática). O pai possui família; componentes não exigem.
 
@@ -32,7 +34,8 @@
 1. **Revalidação do congelado (caminho completo da app):** 226/226 aceitos, 0 bloqueados, cobertura 9/12/19/43.
 2. **Regressão de versionamento (TDD REFACTOR/REGRESSÃO da SPEC):** cópia do catálogo com mutação controlada de criticidade (TM01: A→B, linha 132, coluna 9 — único diff auditável) → validador reclassifica TM01 de `uncovered` para `not-required` (uncovered 12→11); **original permanece íntegro** (SHA idêntico antes e depois da prova) e a alteração fica auditável no diff célula a célula. PASSOU.
 3. **Regressão automatizada:** 14/14 testes do contrato v1.2.0 passando.
-4. **Caminhos de erro da SPEC** (provas anteriores da T1.2, vigentes): arquivo vazio bloqueia; família vazia bloqueia para o PCM; ativo sem sensor nunca aparece coberto/saudável (CA-1-002).
+4. **Verificação independente pós-teste humano:** SHA da planilha e dos 3 arquivos do contrato idênticos aos do termo; revalidação completa 226/226; 12 lacunas todas criticidade A; sem persistência nem envio ao Skip Cloud.
+5. **Caminhos de erro da SPEC** (provas da T1.2, vigentes): arquivo vazio bloqueia; família vazia bloqueia para o PCM; ativo sem sensor nunca aparece coberto/saudável (CA-1-002).
 
 ## Reversão
 
@@ -42,4 +45,4 @@
 ## Pendências externas (não bloqueiam o congelamento)
 
 - Homologação da Kim das emendas v1.1.0/v1.1.0b/v1.2.0 (pendente desde 02/10; escalada em 13/10). Precedente: aplicação autorizada pelo cliente com reversão garantida.
-- Validação do rascunho Família→Classe pelo PCM (23 famílias) — registrada como dívida viva do catálogo, sem efeito sobre o congelamento.
+- ~~Validação do rascunho Família→Classe pelo PCM (23 famílias)~~ RESOLVIDA em 19/10 — validada pelo homologador.
