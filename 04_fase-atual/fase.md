@@ -33,7 +33,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - [x] Tags e sensores obrigatórios mapeados. *(cobertura congelada: 9 covered / 12 lacunas A explícitas / 19 not-required / 47 not-applicable)*
 - [ ] Acesso a amostra real demonstrado.
 - [ ] Fonte de falhas/paradas/OS homologada.
-- [ ] K1–K3 definidos operacionalmente.
+- [x] K1–K3 definidos operacionalmente. *(T3.1 concluída 28/10 — contrato v1.0.0; homologação formal na T3.3)*
 - [ ] Qualidade e lacunas documentadas.
 - [ ] Painel inicial demonstrado com dados reais.
 - [ ] Lista de bloqueadores e contornos aprovada.
@@ -61,7 +61,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 |---|---|---|---|---|---|---|---|---|
 | T1.1 | Preparar e validar o esquema de importação do universo inicial de ativos | Produto/Dados | SPEC-1-001 | Fixture com ativo completo, sem sensor, tag duplicada e exclusão é importada sem perda de origem; pendências ficam bloqueadas | TDD RED — validação do catálogo | fixture, relatório RED e esquema versionado | Fontes candidatas disponibilizadas | ✅ 14/10 |
 | T2.1 | Inventariar fontes OT e desenhar protocolo seguro da prova de acesso | TI/OT | SPEC-1-002 | Inventário cobre SCADA, historiador, IONICS, Solinftec e exportações; protocolo proíbe teste de escrita em produção | Pré-condição + TDD RED | inventário, diagrama preliminar e protocolo autorizado | Responsável TI/OT designado | ☐ |
-| T3.1 | Definir dicionário operacional e memória de cálculo de K1, K2 e K3 | PCM | SPEC-1-003 | CA-1-007 passa com termos, fórmulas, fontes, janelas, exclusões e donos | TDD GREEN — contrato dos KPIs | contrato de medição versionado | Briefing aprovado e responsáveis nomeados | ☐ |
+| T3.1 | Definir dicionário operacional e memória de cálculo de K1, K2 e K3 | PCM | SPEC-1-003 | CA-1-007 passa com termos, fórmulas, fontes, janelas, exclusões e donos | TDD GREEN — contrato dos KPIs | contrato de medição versionado | Briefing v1.0 aprovado por Luís em 27/10 com parâmetros fechados | ✅ 28/10 |
 | T4.1 | Implementar fixture e perfilador reproduzível de qualidade de séries | Engenharia de Dados | SPEC-1-004 | Fixture detecta gap, duplicidade, atraso, unidade alterada, vazio e timestamp inválido | TDD RED — caminhos de erro | fixture, configuração e relatório RED | Esquema da amostra definido | ☐ |
 | T5.1 | Definir contrato do painel, estados, perfis e auditoria | Produto/Segurança | SPEC-1-005 | Mapa de telas e matriz perfil×ação cobrem estados completo, parcial, sem dados, atrasado e conflitante | Pré-condições + TDD RED | contrato de UI/API, matriz de perfis e cenários RED | SPECs revisadas e regras de cobertura definidas | ☐ |
 | T6.1 | Conduzir workshop e registrar RACI, safra, capacidade e critérios dos gates | Consultora | SPEC-1-006 | CA-1-017 e CA-1-020 possuem donos, RACI, horas/semana, calendário e critérios registrados ou bloqueio explícito | Checklist + CA-1-017/020 | ata, RACI, calendário e ledger inicial | Participantes de PCM, operação, manutenção e TI/OT confirmados | ☐ |
