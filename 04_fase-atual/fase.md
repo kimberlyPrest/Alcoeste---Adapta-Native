@@ -31,7 +31,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - [x] Responsáveis e RACI do piloto definidos. *(parcial — responsáveis nomeados; RACI formal no T6.1)*
 - [x] Catálogo e criticidade homologados. *(T1.3 concluída 19/10 — catálogo v1.2.0 congelado, termo 06_notas/termo-homologacao-t1.3.md)*
 - [x] Tags e sensores obrigatórios mapeados. *(cobertura congelada: 9 covered / 12 lacunas A explícitas / 19 not-required / 47 not-applicable)*
-- [ ] Acesso a amostra real demonstrado.
+- [ ] Acesso a amostra real demonstrado. *(T2.2 pendente — a leitura real da API IoTebe já foi medida em 03/11: 34 spots, 1 amostra/min, 95,6% de cobertura em 24 h; falta a prova formal com termo)*
 - [ ] Fonte de falhas/paradas/OS homologada.
 - [x] K1–K3 definidos operacionalmente. *(T3.1 concluída 28/10 — contrato v1.0.0; homologação formal na T3.3)*
 - [ ] Qualidade e lacunas documentadas.
@@ -42,7 +42,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - **CA-F1-01:** 100% dos ativos elegíveis do piloto possuem identificador, classe, criticidade, responsável e vínculo conhecido ou lacuna explícita com as fontes. *(satisfeito pelo catálogo congelado — 226/226, 12 lacunas explícitas)*
 - **CA-F1-02:** ao menos uma amostra real de cada fonte aprovada é ingerida e exibida com ativo, variável, unidade, timestamp e origem.
 - **CA-F1-03:** o painel diferencia claramente ativo coberto, parcialmente coberto, sem dados e dado atrasado.
-- **CA-F1-04:** K1–K3 possuem fórmula, denominador, janela, fonte e responsável aprovados ou estão marcados como bloqueados, sem estimativa inventada.
+- **CA-F1-04:** K1–K3 possuem fórmula, denominador, janela, fonte e responsável aprovados ou estão marcados como bloqueados, sem estimativa inventada. *(satisfeito por T3.1 + T3.2 — contrato v1.0.0 e baseline v1.2 com K2/K3 declarados inconclusivos)*
 - **CA-F1-05:** existe decisão documentada para G1–G10, com dono e evidência necessária.
 - **CA-F1-06:** G1–G4 e G9 estão aprovados para liberar a Fase 2; os demais podem permanecer pendentes apenas com dono, prazo e marco de bloqueio explícitos.
 - **CA-F1-07:** se G2 não for satisfeito por nenhum contorno seguro e útil, o projeto pausa e retorna à Kim e ao cliente, sem iniciar a Fase 2.
@@ -53,6 +53,16 @@ Selecionar ativos reais e mostrar: cadastro, tags, última leitura, histórico d
 ## Gate de saída
 Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte de classes que seguirão para ingestão contínua.
 
+## Progresso
+
+**5 de 17 tasks concluídas (29%).**
+
+| Leva | Concluídas |
+|---|---|
+| A | T1.1, T3.1 |
+| B | T1.2 |
+| C | T1.3 |
+| D | **T3.2** |
 
 ## Tasks
 
@@ -60,7 +70,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
 | T1.1 | Preparar e validar o esquema de importação do universo inicial de ativos | Produto/Dados | SPEC-1-001 | Fixture com ativo completo, sem sensor, tag duplicada e exclusão é importada sem perda de origem; pendências ficam bloqueadas | TDD RED — validação do catálogo | fixture, relatório RED e esquema versionado | Fontes candidatas disponibilizadas | ✅ 14/10 |
-| T2.1 | Inventariar fontes OT e desenhar protocolo seguro da prova de acesso | TI/OT | SPEC-1-002 | Inventário cobre SCADA, historiador, IONICS, Solinftec e exportações; protocolo proíbe teste de escrita em produção | Pré-condição + TDD RED | inventário, diagrama preliminar e protocolo autorizado | Responsável TI/OT designado | ☐ |
+| T2.1 | Inventariar fontes OT e desenhar protocolo seguro da prova de acesso | TI/OT | SPEC-1-002 | Inventário cobre SCADA, historiador, IONICS, Solinftec e exportações; protocolo proíbe teste de escrita em produção | Pré-condição + TDD RED | inventário, diagrama preliminar e protocolo autorizado | Responsável TI/OT designado | ⏳ implementada 04/11, aguardando teste humano |
 | T3.1 | Definir dicionário operacional e memória de cálculo de K1, K2 e K3 | PCM | SPEC-1-003 | CA-1-007 passa com termos, fórmulas, fontes, janelas, exclusões e donos | TDD GREEN — contrato dos KPIs | contrato de medição versionado | Briefing v1.0 aprovado por Luís em 27/10 com parâmetros fechados | ✅ 28/10 |
 | T4.1 | Implementar fixture e perfilador reproduzível de qualidade de séries | Engenharia de Dados | SPEC-1-004 | Fixture detecta gap, duplicidade, atraso, unidade alterada, vazio e timestamp inválido | TDD RED — caminhos de erro | fixture, configuração e relatório RED | Esquema da amostra definido | ☐ |
 | T5.1 | Definir contrato do painel, estados, perfis e auditoria | Produto/Segurança | SPEC-1-005 | Mapa de telas e matriz perfil×ação cobrem estados completo, parcial, sem dados, atrasado e conflitante | Pré-condições + TDD RED | contrato de UI/API, matriz de perfis e cenários RED | SPECs revisadas e regras de cobertura definidas | ☐ |
@@ -83,7 +93,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 ### Leva D
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| T3.2 | Montar dataset rastreável e calcular o baseline inicial | Engenharia de Dados | SPEC-1-003 | CA-1-008 passa; ausência de dado/evento resulta bloqueado ou inconclusivo, nunca sucesso | TDD RED/GREEN — bordas e baseline | dataset, memória de cálculo e relatório de lacunas | T1.3, T3.1 aceitas e fontes PIMS/Excel disponibilizadas | ☐ |
+| T3.2 | Montar dataset rastreável e calcular o baseline inicial | Engenharia de Dados | SPEC-1-003 | CA-1-008 passa; ausência de dado/evento resulta bloqueado ou inconclusivo, nunca sucesso | TDD RED/GREEN — bordas e baseline | dataset, memória de cálculo e relatório de lacunas | T1.3, T3.1 aceitas e fontes PIMS/Excel disponibilizadas | ✅ 05/11 |
 | T4.3 | Emitir parecer de aptidão preditiva por classe | Especialista de Manutenção | SPEC-1-004 | CA-1-012 passa e nenhuma classe insuficiente é marcada apta | TDD REGRESSÃO — decisão por classe | matriz de aptidão com fonte, aprovador e limitações | T3.1 e T4.2 aceitas | ☐ |
 | T5.2 | Construir painel de prontidão e condição inicial com amostra aprovada | Desenvolvimento | SPEC-1-005 | CA-1-013, CA-1-014 e CA-1-015 passam em testes UI/API | TDD GREEN — resumo, filtros, detalhe e estados negativos | suíte executada, capturas e build demonstrável | T1.3, T2.2 ou parecer G2-A, T4.2 e T5.1 aceitas | ☐ |
 
