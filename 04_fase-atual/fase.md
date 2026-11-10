@@ -33,7 +33,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - [x] Tags e sensores obrigatórios mapeados. *(cobertura congelada: 9 covered / 12 lacunas A explícitas / 19 not-required / 47 not-applicable)*
 - [ ] Acesso a amostra real demonstrado. *(T2.2 pendente — a leitura real da API IoTebe já foi medida em 03/11: 34 spots, 1 amostra/min, 95,6% de cobertura em 24 h; falta a prova formal com termo)*
 - [ ] Fonte de falhas/paradas/OS homologada.
-- [x] K1–K3 definidos operacionalmente. *(T3.1 concluída 28/10 — contrato v1.0.0; homologação formal na T3.3)*
+- [x] K1–K3 definidos operacionalmente. *(T3.1 concluída 28/10 — contrato v1.0.0; contratos e baseline selados na T3.3 em 10/11)*
 - [ ] Qualidade e lacunas documentadas.
 - [ ] Painel inicial demonstrado com dados reais.
 - [ ] Lista de bloqueadores e contornos aprovada.
@@ -42,7 +42,7 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - **CA-F1-01:** 100% dos ativos elegíveis do piloto possuem identificador, classe, criticidade, responsável e vínculo conhecido ou lacuna explícita com as fontes. *(satisfeito pelo catálogo congelado — 226/226, 12 lacunas explícitas)*
 - **CA-F1-02:** ao menos uma amostra real de cada fonte aprovada é ingerida e exibida com ativo, variável, unidade, timestamp e origem.
 - **CA-F1-03:** o painel diferencia claramente ativo coberto, parcialmente coberto, sem dados e dado atrasado.
-- **CA-F1-04:** K1–K3 possuem fórmula, denominador, janela, fonte e responsável aprovados ou estão marcados como bloqueados, sem estimativa inventada. *(satisfeito por T3.1 + T3.2 — contrato v1.0.0 e baseline v1.2 com K2/K3 declarados inconclusivos)*
+- **CA-F1-04:** K1–K3 possuem fórmula, denominador, janela, fonte e responsável aprovados ou estão marcados como bloqueados, sem estimativa inventada. *(satisfeito por T3.1 + T3.2 + T3.3 — contrato v1.0.0 selado, baseline v1.2, K2/K3 declarados inconclusivos)*
 - **CA-F1-05:** existe decisão documentada para G1–G10, com dono e evidência necessária.
 - **CA-F1-06:** G1–G4 e G9 estão aprovados para liberar a Fase 2; os demais podem permanecer pendentes apenas com dono, prazo e marco de bloqueio explícitos.
 - **CA-F1-07:** se G2 não for satisfeito por nenhum contorno seguro e útil, o projeto pausa e retorna à Kim e ao cliente, sem iniciar a Fase 2.
@@ -55,14 +55,15 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 
 ## Progresso
 
-**5 de 17 tasks concluídas (29%).**
+**6 de 17 tasks concluídas em execução (35%).**
 
 | Leva | Concluídas |
 |---|---|
 | A | T1.1, T3.1 |
 | B | T1.2 |
 | C | T1.3 |
-| D | **T3.2** |
+| D | T3.2 |
+| E | **T3.3** (execução concluída 10/11 — homologação formal do CA-1-009 pela consultora pendente) |
 
 ## Tasks
 
@@ -100,7 +101,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 ### Leva E
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| T3.3 | Homologar contrato e proteção de comparabilidade dos KPIs | Consultora | SPEC-1-003 | CA-1-009 passa e mudança de fórmula/exclusão sem aprovação é rejeitada | TDD REGRESSÃO — versão e comparabilidade | aprovação verificável, hash e teste de alteração | T3.1 e T3.2 aceitas | ☐ |
+| T3.3 | Homologar contrato e proteção de comparabilidade dos KPIs | Consultora | SPEC-1-003 | CA-1-009 passa e mudança de fórmula/exclusão sem aprovação é rejeitada | TDD REGRESSÃO — versão e comparabilidade | aprovação verificável, hash e teste de alteração | T3.1 e T3.2 aceitas | ✅ execução 10/11 · homologação pendente (consultora) |
 | T5.3 | Validar autorização server-side, auditoria e exportação controlada do painel | QA de Segurança | SPEC-1-005 | CA-1-016 e CA-1-022 passam; API nega acesso/exportação indevidos e registra tentativas | TDD REGRESSÃO — permissão e auditoria | logs, respostas 403, relatório de testes e demonstração | T5.2 aceita; perfis de teste criados | ☐ |
 
 ### Leva F
