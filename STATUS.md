@@ -2,8 +2,16 @@
 
 **Fase atual:** Fase 1 — Fundação do piloto, catálogo, conectividade e baseline
 **Estado:** em execução — SPEC-1-001 concluída (T1.1, T1.2, T1.3); SPEC-1-003 concluída em execução (T3.1, T3.2, T3.3); Levas A–F em sequência
-**Progresso das tasks:** 6/17 concluídas em execução (T1.1, T1.2, T1.3, T3.1, T3.2, T3.3) — 35%
-**Atualizado em:** 2026-11-10
+**Progresso das tasks:** 6/19 concluídas em execução (T1.1, T1.2, T1.3, T3.1, T3.2, T3.3) — 32%. Aguardam teste humano: T2.1 e T5.1
+**Atualizado em:** 2026-11-23
+
+## EMENDA E-F1-01 — RECORTE DA CONECTIVIDADE (23/11/2026, aprovada pela consultora Kim)
+
+- **IoTebe é a fonte aprovada da Fase 1.** SCADA Sonne, historiador, PIMS MI em tempo real, IONICS, Solinftec e exportações automatizadas vão para **backlog de fontes**, sem bloquear. **A T2.2 não depende mais do TI/OT.**
+- **T2.2** executada pelo PCM (Gustavo) com aprovação de Luís. Seguem obrigatórias, com Luís: expiração/rotação da credencial IoTebe e a decisão sobre a chave com permissão de escrita (aceitar o risco com C1/C2 ou pedir chave somente leitura ao fornecedor).
+- **Nova T2.4:** OS, falhas e paradas por exportação CSV semanal do PIMS MI feita pelo PCM (número, abertura, fechamento, TAG, tipo, houve parada, descrição).
+- **T5.2:** o painel é construído no app Skip 57219 (preview) com dados reais do IoTebe.
+- Detalhe: `06_notas/emenda-2026-11-23-recorte-conectividade-f1.md`.
 
 ## T3.3 — EXECUÇÃO CONCLUÍDA (10/11/2026) · homologação do CA-1-009 pendente
 
@@ -52,7 +60,15 @@
 - T1.1: esquema de importação v1.1.0b — 139/226 aceitos, 87 bloqueados (pendências da T1.2), zero duplicatas.
 - T1.2: contrato v1.2.0 — Classe derivada da Família (23 famílias) + cobertura orientada por criticidade; 226 candidatos → 222 aceitos, 4 bloqueados (família vazia); 14/14 testes.
 
-## Próximas tasks elegíveis
+## Próximas tasks elegíveis (atualizado pela E-F1-01, 23/11/2026)
+
+- **T4.1** (perfilador de qualidade) — sem dependência; pode começar já.
+- **T2.4** (OS reais por CSV do PIMS MI) — depende só do CSV exportado pelo PCM.
+- **T2.2** (prova de leitura real, recorte IoTebe) — depende do teste humano da T2.1 e das decisões de Luís sobre a credencial e a chave.
+- Depois: T4.2 → **T5.2 no app** → T5.3 e T2.3.
+- Teste humano de Luís pendente: T2.1 (desde 04/11) e T5.1 (desde 11/11).
+
+### Lista anterior (10/11, antes da emenda)
 
 - **T5.1** (contrato do painel, estados, perfis e auditoria) — sem insumo externo, recomendada como próxima.
 - **T4.1** (fixture e perfilador de qualidade de séries) — independente.

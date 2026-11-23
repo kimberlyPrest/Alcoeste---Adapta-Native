@@ -31,8 +31,8 @@ Modelo preditivo em produção, diagnóstico automático, recomendação operaci
 - [x] Responsáveis e RACI do piloto definidos. *(parcial — responsáveis nomeados; RACI formal no T6.1)*
 - [x] Catálogo e criticidade homologados. *(T1.3 concluída 19/10 — catálogo v1.2.0 congelado, termo 06_notas/termo-homologacao-t1.3.md)*
 - [x] Tags e sensores obrigatórios mapeados. *(cobertura congelada: 9 covered / 12 lacunas A explícitas / 19 not-required / 47 not-applicable)*
-- [ ] Acesso a amostra real demonstrado. *(T2.2 pendente — a leitura real da API IoTebe já foi medida em 03/11: 34 spots, 1 amostra/min, 95,6% de cobertura em 24 h; falta a prova formal com termo)*
-- [ ] Fonte de falhas/paradas/OS homologada.
+- [ ] Acesso a amostra real demonstrado. *(T2.2 desbloqueada pela E-F1-01: IoTebe é a fonte aprovada da F1 — a leitura real da API IoTebe já foi medida em 03/11: 34 spots, 1 amostra/min, 95,6% de cobertura em 24 h; falta a prova formal com termo)*
+- [ ] Fonte de falhas/paradas/OS homologada. *(E-F1-01: exportação CSV semanal do PIMS MI pelo PCM — T2.4)*
 - [x] K1–K3 definidos operacionalmente. *(T3.1 concluída 28/10 — contrato v1.0.0; contratos e baseline selados na T3.3 em 10/11)*
 - [ ] Qualidade e lacunas documentadas.
 - [ ] Painel inicial demonstrado com dados reais.
@@ -55,7 +55,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 
 ## Progresso
 
-**6 de 17 tasks concluídas em execução (35%).**
+**6 de 19 tasks concluídas em execução (32%).** *(18 tasks do handoff + T2.4 criada pela E-F1-01)*
 
 | Leva | Concluídas |
 |---|---|
@@ -64,6 +64,12 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 | C | T1.3 |
 | D | T3.2 |
 | E | **T3.3** (execução concluída 10/11 — homologação formal do CA-1-009 pela consultora pendente) |
+
+## Emendas da fase
+
+| Data | Emenda | Resumo |
+|---|---|---|
+| 23/11/2026 | E-F1-01 (aprovada pela consultora Kim) | IoTebe é a fonte aprovada da F1; SCADA Sonne, historiador, PIMS MI em tempo real, IONICS, Solinftec e exportações automatizadas vão para backlog sem bloquear; T2.2 pelo PCM com aprovação de Luís; nova T2.4 (OS por CSV semanal do PIMS MI); T5.2 construída no app Skip 57219. Detalhe em `06_notas/emenda-2026-11-23-recorte-conectividade-f1.md` |
 
 ## Tasks
 
@@ -81,14 +87,15 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
 | T1.2 | Consolidar ativos, componentes, tags, sensores e criticidade com lacunas explícitas | PCM/Manutenção | SPEC-1-001 | CA-1-001 e CA-1-002 passam para 100% dos candidatos | TDD GREEN — catálogo e estados de cobertura | export completo e relatório de lacunas | T1.1 aceita e responsáveis nomeados | ✅ 14/10 |
-| T2.2 | Executar prova de leitura somente leitura com dados reais da moenda | Automação/TI-OT | SPEC-1-002 | CA-1-004, CA-1-005 e CA-1-021 passam, incluindo segmentação e ciclo de vida da credencial | TDD GREEN — amostra real e arquitetura OT | amostra sanitizada, logs, diagrama e parecer TI/OT | T2.1 aceita; janela e autorização OT aprovadas | ☐ |
+| T2.2 | Executar prova de leitura somente leitura com dados reais da moenda (recorte IoTebe, E-F1-01) | PCM/executor, com aprovação de Luís | SPEC-1-002 | CA-1-004, CA-1-005 e CA-1-021 passam com a fonte IoTebe; no CA-1-005 a aprovação de Luís como dono do risco substitui o parecer TI/OT | TDD GREEN — amostra real e arquitetura em nuvem | amostra sanitizada, logs, diagrama, aprovação de Luís (parecer TI/OT anexado se houver) | T2.1 aceita; decisões de Luís nas pendências 1 e 10 da SPEC-1-002 | ☐ desbloqueada (E-F1-01) |
 | T6.2 | Aprovar protocolo de incidente e integridade das aprovações | Responsável TI/OT | SPEC-1-006 | CA-1-023 e CA-1-024 passam em cenários de credencial, acesso, exportação e aprovação sem identidade/hash | TDD RED/REGRESSÃO — incidente e autoria | runbook, simulação de mesa, registros assinados/hash | T2.1 e T6.1 aceitas | ☐ |
 
 ### Leva C
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
 | T1.3 | Homologar e congelar a versão do catálogo e suas exclusões | Gestão Industrial | SPEC-1-001 | CA-1-003 passa e alteração posterior preserva versão anterior | TDD REGRESSÃO — versionamento e exclusões | termo de homologação, versão/hash e diff | T1.2 aceita | ✅ 19/10 |
-| T2.3 | Classificar viabilidade e frequência por classe e emitir parecer técnico G2/G9 | PCM | SPEC-1-002 | CA-1-006 passa; cada classe fica útil ou bloqueada com justificativa; ausência total gera parecer G2-A | Cenário limite/falha + regressão segura | matriz classe×fonte×frequência e parecer técnico | T2.2 concluída ou impossibilidade documentada | ☐ |
+| T2.3 | Classificar viabilidade e frequência por classe e emitir parecer técnico G2/G9 | PCM | SPEC-1-002 | CA-1-006 passa; cada classe fica útil ou bloqueada com justificativa; classes sem IoTebe ficam "bloqueadas — fonte em backlog" (E-F1-01); ausência total gera parecer G2-A | Cenário limite/falha + regressão segura | matriz classe×fonte×frequência e parecer técnico | T2.2 concluída ou impossibilidade documentada | ☐ |
+| T2.4 | Importar OS, falhas e paradas reais da moenda por exportação CSV do PIMS MI | PCM | SPEC-1-002 | CSV importado com arquivo de origem (hash), aba e linha; OS vinculadas a TAG do catálogo ou lacuna explícita; campo "houve parada" preenchido ou marcado como ausente; nenhuma OS criada no PIMS | TDD GREEN — importação e vínculo | CSV de origem com hash, relatório de importação e lacunas | T1.3 aceita; CSV exportado pelo PCM | ☐ (E-F1-01) |
 | T4.2 | Perfilar amostra real e dimensionar armazenamento da Fase 2 | Engenharia de Dados | SPEC-1-004 | CA-1-010 e CA-1-011 passam com métricas e estimativas reproduzíveis | TDD GREEN — perfil e dimensionamento | relatório versionado e memória de custo/retenção | T2.2 aceita e T4.1 aceita | ☐ |
 
 ### Leva D
@@ -96,7 +103,7 @@ Cliente e consultora aprovam catálogo, fontes, métricas, contornos e recorte d
 |---|---|---|---|---|---|---|---|---|
 | T3.2 | Montar dataset rastreável e calcular o baseline inicial | Engenharia de Dados | SPEC-1-003 | CA-1-008 passa; ausência de dado/evento resulta bloqueado ou inconclusivo, nunca sucesso | TDD RED/GREEN — bordas e baseline | dataset, memória de cálculo e relatório de lacunas | T1.3, T3.1 aceitas e fontes PIMS/Excel disponibilizadas | ✅ 05/11 |
 | T4.3 | Emitir parecer de aptidão preditiva por classe | Especialista de Manutenção | SPEC-1-004 | CA-1-012 passa e nenhuma classe insuficiente é marcada apta | TDD REGRESSÃO — decisão por classe | matriz de aptidão com fonte, aprovador e limitações | T3.1 e T4.2 aceitas | ☐ |
-| T5.2 | Construir painel de prontidão e condição inicial com amostra aprovada | Desenvolvimento | SPEC-1-005 | CA-1-013, CA-1-014 e CA-1-015 passam em testes UI/API | TDD GREEN — resumo, filtros, detalhe e estados negativos | suíte executada, capturas e build demonstrável | T1.3, T2.2 ou parecer G2-A, T4.2 e T5.1 aceitas | ☐ |
+| T5.2 | Construir painel de prontidão e condição inicial com amostra aprovada | Desenvolvimento | SPEC-1-005 | CA-1-013, CA-1-014 e CA-1-015 passam em testes UI/API | TDD GREEN — resumo, filtros, detalhe e estados negativos | suíte executada, capturas e **painel no app Skip 57219 (preview) com dados reais IoTebe** (E-F1-01) | T1.3, T2.2 (recorte IoTebe, E-F1-01) ou parecer G2-A, T4.2 e T5.1 aceitas | ☐ |
 
 ### Leva E
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
